@@ -20,6 +20,14 @@ class Schedule {
         }
     }
 
+    clear() {
+        this.#schedule.fill(false);
+    }
+
+    // print function needed below
+    print() {
+
+    }
 
 }
 

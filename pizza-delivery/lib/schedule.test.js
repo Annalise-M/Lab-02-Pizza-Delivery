@@ -10,7 +10,7 @@ describe('Schedule Class', () => {
     });
 
     
-    it('adds a new order to the schedule', () => {
+    it('adds a new order to the schedule with addOrder method', () => {
         const schedule = new Schedule();
         const order = new Order('pizza order', 40, 20);
         schedule.addOrder(order);
@@ -19,7 +19,17 @@ describe('Schedule Class', () => {
     });
     
     // clear
-    
+    it('should clear schedule items with clear method', () => {
+        const testSchedule = new Schedule();
+        const testOrder = new Order('Bob', 20, 20);
+
+        testSchedule.addOrder(testOrder.startMinute, testOrder.deliveryMinute);
+        testSchedule.clear();
+
+        const openMinute = testSchedule.nextOpenMinute();
+
+        expect(openMinute).toEqual(0);
+    });
     
     
     
