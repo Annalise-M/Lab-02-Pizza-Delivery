@@ -31,9 +31,29 @@ describe('Schedule Class', () => {
         expect(openMinute).toEqual(0);
     });
     
+
+    it('prints out the schedule', () => {
+        console.table = jest.fn();
+        const schedule = new Schedule();
+        const order = new Order('pizza order in', 40, 20);
+        schedule.addOrder(order);
+
+        schedule.print();
+
+        expect(console.table).toHaveBeenCalledWith([
+            { start: 0, end: 40, status: 'busy' },
+            { start: 41, end: 1439, status: 'free' }
+        ]);
+    });
     
-    
+    it('adds an order to the schedule', () => {
+        const schedule = new Schedule();
+        const order = new Order('new pizza order', 40, 20);
+        schedule.addOrder(order);
+
+        expect(schedule.freeWindow(0, 41)).toBeFalsy();
+        expect(schedule.freeWindow(41, 50)).toBeTruthy();
+    });
     
 })
-// print
 
