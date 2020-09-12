@@ -6,13 +6,13 @@ class Order {
     #drivingDistanceInMinutes;
 
     constructor(name, deliveryMinute, drivingDistanceInMinutes) {
-        this.name = name;
-        this.deliveryMinute = deliveryMinute;
-        this.#drivingDistanceInMinutes = drivingDistanceInMinutes;
+      this.name = name;
+      this.deliveryMinute = deliveryMinute;
+      this.#drivingDistanceInMinutes = drivingDistanceInMinutes;
     }
 
     get startMinute() {
-        return this.deliveryMinute - (this.#COOK_TIME + this.#drivingDistanceInMinutes);
+      return this.deliveryMinute - (this.#COOK_TIME + this.#drivingDistanceInMinutes);
     }
 }
 

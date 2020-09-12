@@ -5,7 +5,7 @@ class Driver {
     currentSchedule = new Schedule();
 
     constructor(name) {
-        this.name = name;
+      this.name = name;
     }
 }
 
